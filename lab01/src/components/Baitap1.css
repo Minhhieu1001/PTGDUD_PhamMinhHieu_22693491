@@ -1,0 +1,36 @@
+div{
+    background-color: rgb(237, 81, 195);
+    border-radius: 10px;
+}
+  
+  input {
+    padding: 8px;
+    margin: 5px;
+    font-size: 16px;
+  }
+  
+  .radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+    
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color:rgb(217, 55, 27);
+  }
+  
+  h3 {
+    color: black;+
+  }
+  
