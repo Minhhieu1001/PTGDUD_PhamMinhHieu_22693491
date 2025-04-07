@@ -1,8 +1,9 @@
 import data  from "../data/data.json";
-import dataTable  from "../data/dataTable.json";
+// import dataTable  from "../data/dataTable.json";
 import { useState } from "react";
+import { useTable } from "../context/TableAPI";
 const Content = () => {
-   
+  const {dataTB} = useTable();
     return (
       <div className="w-full p-5">
         <div className="grid grid-cols-12">
@@ -54,7 +55,7 @@ const Content = () => {
                   </tr>
                 </thead>
                 <tbody className="text-center">
-                  {dataTable.map((item,index)=>(
+                  {dataTB.map((item,index)=>(
                     <tr key={index}>
                  <td className="p-3"><input type="checkbox" /></td>
                   <td className="flex items-center justify-center p-3">
