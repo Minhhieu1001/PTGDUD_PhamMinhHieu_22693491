@@ -1,9 +1,34 @@
 import data  from "../data/data.json";
 // import dataTable  from "../data/dataTable.json";
 import { useState } from "react";
+import Modal from "../modal/Modal";
 import { useTable } from "../context/TableAPI";
+
 const Content = () => {
-  const {dataTB} = useTable();
+    const {dataTB,totalUser} = useTable();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [index,setIndex] = useState(null);
+    const [user,setUser] = useState(null);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  const setindexNull=()=>{
+    setIndex(null);
+  }
+
+  const HandleEdit=(index)=>{
+    setUser(dataTB[index]);
+    setIndex(index);
+    setIsModalOpen(true);
+   
+  }
+
+    
     return (
       <div className="w-full p-5">
         <div className="grid grid-cols-12">
@@ -35,7 +60,7 @@ const Content = () => {
               </div>
             </div>
             <div className="col-span-10 text-end">
-              <button className="rounded border-1 border-pink-400 p-1 text-pink-400">Import</button>
+              <button className="rounded border-1 border-pink-400 p-1 text-pink-400" onClick={openModal}>Add User</button>
               <button className="rounded border-1 border-pink-400 p-1 ml-3 text-pink-400">Export</button>
             </div>
         </div>
@@ -66,7 +91,7 @@ const Content = () => {
                   <td className="text-center">{item.ordervalue}</td>
                   <td>{item.orderdate}</td>
                   <td className={`p-3 ${item.status === 'New' ? 'text-blue-400' : item.status === 'In-progress' ? 'text-yellow-400' : item.status === 'Completed' ? 'text-green-400' : 'text-blue-400'}`}>{item.status}</td>
-                  <td className=" flex items-center justify-center"><img src={item.image} alt=""/></td>
+                  <td className=" flex items-center justify-center"><img src={item.image} alt="" onClick={()=>HandleEdit(index)}/></td>
                  </tr>
                   ))}
                  
@@ -76,7 +101,7 @@ const Content = () => {
         <br />
         <div className="grid grid-cols-12">
             <div className="col-span-2">
-            <p className="ml-5">5 result</p>  
+            <p className="ml-5">{totalUser} result</p>  
             </div>
 
             <div className="col-span-10 flex justify-end">
@@ -112,7 +137,8 @@ const Content = () => {
                 </button>
             </div>
             </div>
-        </div> 
+        </div>
+        <Modal isOpen={isModalOpen} closeModal={closeModal} editIndex={index} Edituser={user} setIndex ={setindexNull}/>      
         
       </div>
     );

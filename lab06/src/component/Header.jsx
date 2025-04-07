@@ -9,10 +9,10 @@ const Header = () => {
           </div>
           <div className="col-span-9 justify-items-end">
             <ul className="flex">
-                <li className="p-5"><input type="text" placeholder="Search..." className="border-1 rounded w-[250px]" /></li>
-                <li className="p-5"><img src="./Bell 1.png" alt="" /></li>
-                <li className="p-5"><img src="./Question 1.png" alt="" /></li>
-                <li className="p-4"><img src="./Avatar 313.png" alt="" /></li>
+                <li className="p-5"><input type="text" placeholder="Search..." className="border-1 border-blue-500 rounded w-[250px] h-[40px] " /></li>
+                <li className="p-2 pt-[27px]"><img src="./Bell 1.png" alt="" /></li>
+                <li className="p-2 pt-[27px]"><img src="./Question 1.png" alt="" /></li>
+                <li className="p-2 pt-[20px]"><img src="./Avatar 313.png" alt="" /></li>
             </ul>
           </div>
         </div>

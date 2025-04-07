@@ -11,6 +11,7 @@ import Messager from "./pages/Messager";
 import Intergations from "./pages/Intergations";
 import Fount404 from "./pages/Fount404";
 import Footer from "./component/Footer";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -27,6 +28,7 @@ function App() {
             </div>
             <div className="col-span-10 shadow-lg">         
             <Header />
+            <ToastContainer />
               <Routes>
                 <Route path="/" element={<Content />} />
                 <Route path="/dashboar" element={<Content />} />
