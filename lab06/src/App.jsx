@@ -2,6 +2,7 @@
 
 import Header from "./component/Header"
 import Siderbar from "./component/Siderbar"
+import Content from "./component/Content"
 function App() {
 
   return (
@@ -13,7 +14,7 @@ function App() {
             </div>
             <div className="col-span-10">
             <Header />
-            
+            <Content />
             </div>
 
           </div>
