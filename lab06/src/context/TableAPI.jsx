@@ -93,20 +93,36 @@ const TableContext = createContext();
 export const TableProvider = ({ children }) => {
   const [dataTB, setData] = useState([]);
   const API_URL = "https://67c865040acf98d070866108.mockapi.io/user"
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        console.error("Fetch error:", error);
-        toast.error("Failed to fetch data");
-      }
-    };
 
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(API_URL);
+  //       const data = await response.json();
+  //       setData(data);
+  //     } catch (error) {
+  //       console.error("Fetch error:", error);
+  //       toast.error("Failed to fetch data");
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+useEffect(() => {
+  fetch(API_URL)
+    .then((res) => res.json())     
+    .then((data) => {
+      setData(data);               // Lưu dữ liệu vào state
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+      toast.error("Lấy dữ liệu thất bại. Vui lòng thử lại!");
+    });
+}, []);
+
+
+  
 
   const HandleAddUser = async (newUser) => {
     try {
